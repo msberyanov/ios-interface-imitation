@@ -1,24 +1,25 @@
 .screen-background {
-  width: calc(280px - 18px);
-  height: calc(530px - 18px);
+  width: calc(280px - 10px);
+  height: calc(530px - 5px);
   border-radius: 35px;
-  background: url("../wallpaper/default.jpg") no-repeat;
+  background: url("../wallpaper/default-2.jpg") no-repeat;
   background-size: cover;
-  overflow: hidden;
   z-index: 0;
+  position: fixed;
+  margin-top: -2px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .screen {
-  width: calc(280px - 18px);
-  height: calc(530px - 18px);
-  border-radius: 35px;
+  width: calc(100% - 8px);
+  height: calc(100% - 14px);
 
   display: flex;
   flex-direction: column;
-
   overflow: hidden;
-
-  backdrop-filter: blur(0px);
 }
 
 .content {

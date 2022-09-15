@@ -19,8 +19,9 @@ export const Body: React.FC = () => {
     <div className="phone-zone" onMouseMove={mouseTouchEnter}>
       <div className="touch" id="touch"/>
       <div className="notch"/>
+      <div className="body-background"/>
       <div className="body">
-       <Screen/>
+        <Screen/>
       </div>
     </div>
   );

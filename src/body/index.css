@@ -7,7 +7,7 @@
   justify-content: center;
 }
 
-.body {
+.body-background {
   width: 280px;
   height: 531px;
 
@@ -15,20 +15,35 @@
   align-items: center;
   justify-content: center;
 
-  background: black;
+  box-shadow:inset 0px 0px 0px 10px #000000;;
   border-radius: 45px;
+  z-index: 2;
+  position: fixed;
 
-  border: 1px solid #b9b9b9;
+  pointer-events: none;
 }
 
-.body:before {
+.body {
+  width: 280px;
+  height: 531px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 45px;
+  z-index: 0;
+  position: fixed;
+}
+
+.body-background:before {
   position: fixed;
   content: '';
   border: 2px solid #0e69a9;
   border-radius: 47px;
-  width: 282px;
-  height: 533px;
+  width: 281px;
+  height: 532px;
   pointer-events: none;
+  z-index: 2;
 }
 
 .touch {
@@ -38,7 +53,7 @@
   background: rgba(255, 255, 255, 0.65);
   border-radius: 15px;
   box-shadow: 0 1px 8px -1px rgba(34, 60, 80, 0.2);
-  z-index: 2;
+  z-index: 5;
   pointer-events: none;
 }
 
@@ -49,5 +64,5 @@
   margin-bottom: 500px;
   background: #000000;
   border-radius: 0px 0px 12px 12px;
-  z-index: 1;
+  z-index: 5;
 }

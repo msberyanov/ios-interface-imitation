@@ -26,14 +26,14 @@ const reducer = (state: typeof initialState, action: ACTION_TYPE) => {
   }
 }
 
-const activateOnUnlock = (payload: number) : ACTION_TYPE => (
+const activateOnUnlock = (payload: number): ACTION_TYPE => (
   {
     type: "activate",
     payload: payload
   }
 );
 
-const deactivateOnUnlock = () : ACTION_TYPE => (
+const deactivateOnUnlock = (): ACTION_TYPE => (
   {
     type: "deactivate",
   }
@@ -181,6 +181,10 @@ export const Screen: React.FC = () => {
 
               if (onUnlockOffset > 300) {
                 screenElement.style.setProperty("-webkit-backdrop-filter", `blur(8px)`);
+              }
+
+              if (onUnlockOffset > 350) {
+                screenElement.style.setProperty("-webkit-backdrop-filter", `blur(9px)`);
               }
 
               screenElement.style.setProperty("transform", `translateY(-${onUnlockOffset}px)`);
