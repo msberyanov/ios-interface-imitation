@@ -1,0 +1,53 @@
+.phone-zone {
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.body {
+  width: 280px;
+  height: 531px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: black;
+  border-radius: 45px;
+
+  border: 1px solid #b9b9b9;
+}
+
+.body:before {
+  position: fixed;
+  content: '';
+  border: 2px solid #0e69a9;
+  border-radius: 47px;
+  width: 282px;
+  height: 533px;
+  pointer-events: none;
+}
+
+.touch {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.65);
+  border-radius: 15px;
+  box-shadow: 0 1px 8px -1px rgba(34, 60, 80, 0.2);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.notch {
+  width: 100px;
+  height: 30px;
+  position: fixed;
+  margin-bottom: 500px;
+  background: #000000;
+  border-radius: 0px 0px 12px 12px;
+  z-index: 1;
+}

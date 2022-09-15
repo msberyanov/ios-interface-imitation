@@ -1,0 +1,14 @@
+@font-face {
+  font-family: "SF-Pro-Display-Bold";
+  src: local("SF-Pro-Display-Bold"), url("./SF-Pro-Display-Bold.otf") format("truetype");
+}
+
+@font-face {
+  font-family: "SF-Pro-Display-Heavy";
+  src: local("SF-Pro-Display-Heavy"), url("./SF-Pro-Display-Heavy.otf") format("truetype");
+}
+
+@font-face {
+  font-family: "SF-Pro-Text-Bold";
+  src: local("SF-Pro-Text-Bold"), url("./SF-Pro-Text-Bold.otf") format("truetype");
+}
