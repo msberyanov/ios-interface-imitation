@@ -1,9 +1,36 @@
-import React, { useCallback, useReducer, useState } from "react";
+import React, { useReducer } from "react";
 import "./index.css";
 import { IoCellular, } from "react-icons/io5";
 import { IoIosBatteryFull, IoIosCamera, IoIosFlashlight, IoIosVolumeHigh, IoIosVolumeMute, IoIosWifi } from "react-icons/io";
 import moment from "moment";
 import { FaPlay } from "react-icons/fa";
+
+const iconsProps = [
+  {name: "FaceTime", type: "facetime"},
+  {name: "AppStore", type: "appstore"},
+  {name: "Books", type: "books"},
+  {name: "Mail", type: "mail"},
+  {name: "Settings", type: "settings"},
+  {name: "Stocks", type: "stocks"},
+  {name: "Weather", type: "weather"},
+  {name: "Notes", type: "notes"},
+  {name: "Files", type: "files"},
+  {name: "Calculator", type: "calculator"},
+  {name: "Camera", type: "camera"},
+  {name: "Health", type: "health"},
+  {name: "Twitter", type: "twitter"},
+  {name: "News", type: "news"},
+  {name: "Wallet", type: "wallet"},
+  {name: "Instagram", type: "instagram"},
+  {name: "VK", type: "vk"},
+  {name: "Netflix", type: "netflix"},
+  {name: "Spotify", type: "spotify"},
+  {name: "VLC", type: "vlc"},
+  {name: "Telegram", type: "telegram"},
+  {name: "WhatsApp", type: "whatsapp"},
+  {name: "YouTube", type: "youtube"},
+  {name: "AliExpress", type: "aliexpress"},
+];
 
 const initialState = {
   onUnlock: false,
@@ -173,17 +200,33 @@ export const Screen: React.FC = () => {
           </div>
 
           <div className="homescreen-icons-zone">
-            {[...Array(24)].map(() =>
-              <div className="homescreen-icon-zone">
+            {[...Array(24)].map((_, index) =>
+              <div className="homescreen-icon-zone"
+              onAnimationEnd={event => (event.target as HTMLElement).style.setProperty("opacity", "1")}>
                 <div className="homescreen-icon">
-                  <div className="homescreen-icon-image"/>
+                  <div className={`homescreen-icon-image ${iconsProps[index].type}`}/>
                 </div>
                 <div className="homescreen-icon-text">
-                  FaceTime
+                  {iconsProps[index].name}
                 </div>
               </div>
             )}
           </div>
+
+          <div className="homescreen-dots-zone">
+            <div className="homescreen-dot-active"/>
+            <div className="homescreen-dot-inactive"/>
+          </div>
+
+          <div className="homescreen-dock-zone">
+            <div className="homescreen-dock">
+              <div className="homescreen-dock-icon phone"/>
+              <div className="homescreen-dock-icon safari"/>
+              <div className="homescreen-dock-icon message"/>
+              <div className="homescreen-dock-icon music"/>
+            </div>
+          </div>
+
         </div>
       }
 
@@ -284,6 +327,10 @@ export const Screen: React.FC = () => {
               </div>
             </div>
           </div>
+        </div>
+
+        <div className="swipe-message" style={{opacity: onUnlock || unlocked ? 0 : 1}}>
+          Swipe up to open
         </div>
 
         <div
