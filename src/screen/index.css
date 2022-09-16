@@ -2,9 +2,9 @@
   width: calc(280px - 10px);
   height: calc(530px - 5px);
   border-radius: 35px;
-  background: url("../wallpaper/default-2.jpg") no-repeat;
+  background: url("../wallpaper/default-3.png") no-repeat;
   background-size: cover;
-  z-index: 0;
+  z-index: 1;
   position: fixed;
   margin-top: -2px;
   overflow: hidden;
@@ -13,13 +13,493 @@
   align-items: center;
 }
 
-.screen {
+.lockscreen {
   width: calc(100% - 8px);
   height: calc(100% - 14px);
 
   display: flex;
   flex-direction: column;
   overflow: hidden;
+
+  transition-property: transform, -webkit-backdrop-filter;
+  transition-duration: .4s;
+  transition-timing-function: ease-in;
+}
+
+.homescreen {
+  width: calc(280px - 10px);
+  height: calc(530px - 5px);
+
+  display: flex;
+  flex-direction: column;
+
+  transition-property: transform, -webkit-backdrop-filter;
+  transition-duration: .4s;
+  transition-timing-function: ease-in;
+  position: absolute;
+  z-index: 0;
+}
+
+.homescreen-icons-zone {
+  width: calc(100% - 20px);
+  height: calc(100% - 140px);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 5px 0px;
+  justify-items: center;
+  align-items: center;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 20px;
+}
+
+@keyframes homescreen-icon-zone-appearance-1 {
+  0% {
+    opacity: 0;
+    transform: translateY(0px) translateX(-30px) scale(1.3);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes homescreen-icon-zone-appearance-2 {
+  0% {
+    opacity: 0;
+    transform: translateY(0px) translateX(-30px) scale(1.3);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes homescreen-icon-zone-appearance-3 {
+  0% {
+    opacity: 0;
+    transform: translateY(0px) translateX(30px) scale(1.3);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes homescreen-icon-zone-appearance-4 {
+  0% {
+    opacity: 0;
+    transform: translateY(0px) translateX(60px) scale(1.3);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes homescreen-icon-zone-appearance-5 {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) translateX(-60px) scale(1.3);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes homescreen-icon-zone-appearance-6 {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) translateX(-30px) scale(1.3);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes homescreen-icon-zone-appearance-7 {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) translateX(30px) scale(1.3);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes homescreen-icon-zone-appearance-8 {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) translateX(60px) scale(1.3);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes homescreen-icon-zone-appearance-9 {
+  0% {
+    opacity: 0;
+    transform: translateY(60px) translateX(-60px) scale(1.3);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes homescreen-icon-zone-appearance-10 {
+  0% {
+    opacity: 0;
+    transform: translateY(60px) translateX(-30px) scale(1.3);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes homescreen-icon-zone-appearance-11 {
+  0% {
+    opacity: 0;
+    transform: translateY(60px) translateX(30px) scale(1.3);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes homescreen-icon-zone-appearance-12 {
+  0% {
+    opacity: 0;
+    transform: translateY(60px) translateX(60px) scale(1.3);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes homescreen-icon-zone-appearance-13 {
+  0% {
+    opacity: 0;
+    transform: translateY(90px) translateX(-60px) scale(1.3);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes homescreen-icon-zone-appearance-14 {
+  0% {
+    opacity: 0;
+    transform: translateY(90px) translateX(-30px) scale(1.3);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes homescreen-icon-zone-appearance-15 {
+  0% {
+    opacity: 0;
+    transform: translateY(90px) translateX(30px) scale(1.3);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes homescreen-icon-zone-appearance-16 {
+  0% {
+    opacity: 0;
+    transform: translateY(90px) translateX(60px) scale(1.3);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes homescreen-icon-zone-appearance-17 {
+  0% {
+    opacity: 0;
+    transform: translateY(120px) translateX(-60px) scale(1.3);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes homescreen-icon-zone-appearance-18 {
+  0% {
+    opacity: 0;
+    transform: translateY(120px) translateX(-30px) scale(1.3);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes homescreen-icon-zone-appearance-19 {
+  0% {
+    opacity: 0;
+    transform: translateY(120px) translateX(30px) scale(1.3);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes homescreen-icon-zone-appearance-20 {
+  0% {
+    opacity: 0;
+    transform: translateY(120px) translateX(60px) scale(1.3);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes homescreen-icon-zone-appearance-21 {
+  0% {
+    opacity: 0;
+    transform: translateY(150px) translateX(-60px) scale(1.3);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes homescreen-icon-zone-appearance-22 {
+  0% {
+    opacity: 0;
+    transform: translateY(150px) translateX(-30px) scale(1.3);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes homescreen-icon-zone-appearance-23 {
+  0% {
+    opacity: 0;
+    transform: translateY(150px) translateX(30px) scale(1.3);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes homescreen-icon-zone-appearance-24 {
+  0% {
+    opacity: 0;
+    transform: translateY(150px) translateX(60px) scale(1.3);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+
+.homescreen-icon-zone {
+  display: flex;
+  flex-direction: column;
+
+  animation-timing-function: cubic-bezier(.15, 1, .12, 1);
+
+  width: 50px;
+  height: 58px;
+}
+
+.homescreen-icon-zone:nth-of-type(1) {
+  animation-name: homescreen-icon-zone-appearance-1;
+  animation-duration: 1.5s;
+}
+
+.homescreen-icon-zone:nth-of-type(2) {
+  animation-name: homescreen-icon-zone-appearance-2;
+  animation-duration: .6s;
+}
+
+.homescreen-icon-zone:nth-of-type(3) {
+  animation-name: homescreen-icon-zone-appearance-3;
+  animation-duration: .6s;
+}
+
+.homescreen-icon-zone:nth-of-type(4) {
+  animation-name: homescreen-icon-zone-appearance-4;
+  animation-duration: 1.5s;
+}
+
+.homescreen-icon-zone:nth-of-type(5) {
+  animation-name: homescreen-icon-zone-appearance-5;
+  animation-duration: 1.25s;
+}
+
+.homescreen-icon-zone:nth-of-type(6) {
+  animation-name: homescreen-icon-zone-appearance-6;
+  animation-duration: .8s;
+}
+
+.homescreen-icon-zone:nth-of-type(7) {
+  animation-name: homescreen-icon-zone-appearance-7;
+  animation-duration: .8s;
+}
+
+.homescreen-icon-zone:nth-of-type(8) {
+  animation-name: homescreen-icon-zone-appearance-8;
+  animation-duration: 1.25s;
+}
+
+.homescreen-icon-zone:nth-of-type(9) {
+  animation-name: homescreen-icon-zone-appearance-9;
+  animation-duration: 1.25s;
+}
+
+.homescreen-icon-zone:nth-of-type(10) {
+  animation-name: homescreen-icon-zone-appearance-10;
+  animation-duration: .9s;
+}
+
+.homescreen-icon-zone:nth-of-type(11) {
+  animation-name: homescreen-icon-zone-appearance-11;
+  animation-duration: .9s;
+}
+
+.homescreen-icon-zone:nth-of-type(12) {
+  animation-name: homescreen-icon-zone-appearance-12;
+  animation-duration: 1.25s;
+}
+
+.homescreen-icon-zone:nth-of-type(13) {
+  animation-name: homescreen-icon-zone-appearance-13;
+  animation-duration: 1.5s;
+}
+
+.homescreen-icon-zone:nth-of-type(14) {
+  animation-name: homescreen-icon-zone-appearance-14;
+  animation-duration: 1s;
+}
+
+.homescreen-icon-zone:nth-of-type(15) {
+  animation-name: homescreen-icon-zone-appearance-15;
+  animation-duration: 1s;
+}
+
+.homescreen-icon-zone:nth-of-type(16) {
+  animation-name: homescreen-icon-zone-appearance-16;
+  animation-duration: 1.5s;
+}
+
+.homescreen-icon-zone:nth-of-type(17) {
+  animation-name: homescreen-icon-zone-appearance-17;
+  animation-duration: 1.5s;
+}
+
+.homescreen-icon-zone:nth-of-type(18) {
+  animation-name: homescreen-icon-zone-appearance-18;
+  animation-duration: 1s;
+}
+
+.homescreen-icon-zone:nth-of-type(19) {
+  animation-name: homescreen-icon-zone-appearance-19;
+  animation-duration: 1s;
+}
+
+.homescreen-icon-zone:nth-of-type(20) {
+  animation-name: homescreen-icon-zone-appearance-20;
+  animation-duration: 1.5s;
+}
+
+.homescreen-icon-zone:nth-of-type(21) {
+  animation-name: homescreen-icon-zone-appearance-21;
+  animation-duration: 1.5s;
+}
+
+.homescreen-icon-zone:nth-of-type(22) {
+  animation-name: homescreen-icon-zone-appearance-22;
+  animation-duration: 1.5s;
+}
+
+.homescreen-icon-zone:nth-of-type(23) {
+  animation-name: homescreen-icon-zone-appearance-23;
+  animation-duration: 1.5s;
+}
+
+.homescreen-icon-zone:nth-of-type(24) {
+  animation-name: homescreen-icon-zone-appearance-24;
+  animation-duration: 1.5s;
+}
+
+.homescreen-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 80%;
+}
+
+.homescreen-icon-image {
+  width: 40px;
+  height: 40px;
+
+  background: gold;
+  border-radius: 8px;
+}
+
+.homescreen-icon-text {
+  width: 100%;
+  height: 20%;
+
+  color: white;
+  font-family: "SF-Pro-Display-Medium", serif;
+  font-size: 9px;
+  text-align: center;
+  margin-top: 2px;
+  margin-bottom: 2px;
 }
 
 .content {
@@ -308,7 +788,7 @@
 .nav-bar {
   display: flex;
   align-content: center;
-  height: 22px;
+  height: 29px;
 }
 
 .nav-operator {

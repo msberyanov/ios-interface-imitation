@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from "react";
+import React, { useCallback, useReducer, useState } from "react";
 import "./index.css";
 import { IoCellular, } from "react-icons/io5";
 import { IoIosBatteryFull, IoIosCamera, IoIosFlashlight, IoIosVolumeHigh, IoIosVolumeMute, IoIosWifi } from "react-icons/io";
@@ -7,22 +7,34 @@ import { FaPlay } from "react-icons/fa";
 
 const initialState = {
   onUnlock: false,
-  onUnlockTop: 0
+  onUnlockTop: 0,
+  unlocked: false
 };
 
 type ACTION_TYPE =
   | { type: "activate"; payload: number }
-  | { type: "deactivate"; };
+  | { type: "deactivate"; }
+  | { type: "unlock"; };
 
 const reducer = (state: typeof initialState, action: ACTION_TYPE) => {
   switch (action.type) {
     case "activate":
       return {
         onUnlock: true,
-        onUnlockTop: action.payload
+        onUnlockTop: action.payload,
+        unlocked: false
       };
     case "deactivate":
-      return initialState;
+      return {
+        ...initialState,
+        unlocked: state.unlocked
+      };
+    case "unlock":
+      console.log("wtf1")
+      return {
+        ...initialState,
+        unlocked: true
+      };
   }
 }
 
@@ -39,12 +51,143 @@ const deactivateOnUnlock = (): ACTION_TYPE => (
   }
 );
 
-export const Screen: React.FC = () => {
-  const [{onUnlock, onUnlockTop}, dispatch] = useReducer(reducer, initialState);
+const unlock = (): ACTION_TYPE => (
+  {
+    type: "unlock",
+  }
+);
 
+export const Screen: React.FC = () => {
+  const [{onUnlock, onUnlockTop, unlocked}, dispatch] = useReducer(reducer, initialState);
+
+  console.log(unlocked)
   return (
-    <div className="screen-background">
-      <div className="screen" id="screen">
+    <div
+      className="screen-background"
+      onMouseUp={(event) => {
+        if (onUnlock) {
+          const screenElement = document.getElementById("lockscreen") as HTMLDivElement;
+          const onUnlockOffset = onUnlockTop - event.clientY;
+          //
+          // if (onUnlockOffset > 400) {
+          //   smoothscroll(onUnlockOffset + 1);
+          // }
+
+          screenElement.style.setProperty("transition-duration", `.4s`);
+
+          if (onUnlockOffset > 200) {
+            screenElement.style.setProperty("-webkit-backdrop-filter", `blur(30px)`);
+            screenElement.style.setProperty("transform", `translateY(-${520}px)`);
+            dispatch(unlock());
+          } else {
+            screenElement.style.setProperty("-webkit-backdrop-filter", `blur(0px)`);
+            screenElement.style.setProperty("transform", `translateY(0px)`);
+          }
+
+          dispatch(deactivateOnUnlock());
+        }
+      }}
+      onMouseMove={(event) => {
+        if (onUnlock) {
+          const onUnlockOffset = onUnlockTop - event.clientY;
+          const screenElement = document.getElementById("lockscreen") as HTMLDivElement;
+
+          screenElement.style.setProperty("transition-duration", `0s`);
+
+          if (onUnlockOffset > 0) {
+            screenElement.style.setProperty("-webkit-backdrop-filter", `blur(1px)`);
+          }
+
+          if (onUnlockOffset > 25) {
+            screenElement.style.setProperty("-webkit-backdrop-filter", `blur(2px)`);
+          }
+
+          if (onUnlockOffset > 50) {
+            screenElement.style.setProperty("-webkit-backdrop-filter", `blur(3px)`);
+          }
+
+          if (onUnlockOffset > 75) {
+            screenElement.style.setProperty("-webkit-backdrop-filter", `blur(4px)`);
+          }
+
+          if (onUnlockOffset > 100) {
+            screenElement.style.setProperty("-webkit-backdrop-filter", `blur(5px)`);
+          }
+
+          if (onUnlockOffset > 125) {
+            screenElement.style.setProperty("-webkit-backdrop-filter", `blur(6px)`);
+          }
+
+          if (onUnlockOffset > 150) {
+            screenElement.style.setProperty("-webkit-backdrop-filter", `blur(7px)`);
+          }
+
+          if (onUnlockOffset > 175) {
+            screenElement.style.setProperty("-webkit-backdrop-filter", `blur(8px)`);
+          }
+
+          if (onUnlockOffset > 200) {
+            screenElement.style.setProperty("-webkit-backdrop-filter", `blur(9px)`);
+          }
+
+          if (onUnlockOffset > 225) {
+            screenElement.style.setProperty("-webkit-backdrop-filter", `blur(10px)`);
+          }
+
+          if (onUnlockOffset > 250) {
+            screenElement.style.setProperty("-webkit-backdrop-filter", `blur(11px)`);
+          }
+
+          if (onUnlockOffset > 275) {
+            screenElement.style.setProperty("-webkit-backdrop-filter", `blur(12px)`);
+          }
+
+          if (onUnlockOffset > 300) {
+            screenElement.style.setProperty("-webkit-backdrop-filter", `blur(13px)`);
+          }
+
+          if (onUnlockOffset > 325) {
+            screenElement.style.setProperty("-webkit-backdrop-filter", `blur(14px)`);
+          }
+
+          if (onUnlockOffset > 350) {
+            screenElement.style.setProperty("-webkit-backdrop-filter", `blur(15px)`);
+          }
+
+          screenElement.style.setProperty("transform", `translateY(-${onUnlockOffset}px)`);
+        }
+      }}>
+
+      {unlocked &&
+        <div className="homescreen" id="homescreen">
+          <div className="nav-bar">
+            <div className="nav-operator">
+              {moment().format("HH:mm")}
+            </div>
+            <div className="nav-notch"/>
+            <div className="nav-icons">
+              <IoCellular className="nav-icon"/>
+              <IoIosWifi className="nav-icon"/>
+              <IoIosBatteryFull className="nav-icon"/>
+            </div>
+          </div>
+
+          <div className="homescreen-icons-zone">
+            {[...Array(24)].map(() =>
+              <div className="homescreen-icon-zone">
+                <div className="homescreen-icon">
+                  <div className="homescreen-icon-image"/>
+                </div>
+                <div className="homescreen-icon-text">
+                  FaceTime
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      }
+
+      <div className="lockscreen" id="lockscreen">
         <div className="nav-bar">
           <div className="nav-operator">
             T-Mobile
@@ -148,47 +291,6 @@ export const Screen: React.FC = () => {
           onMouseDown={(event) => {
             console.log("wt")
             dispatch(activateOnUnlock(event.clientY));
-          }}
-          onMouseUp={() => dispatch(deactivateOnUnlock())}
-          onMouseMove={(event) => {
-            if (onUnlock) {
-              const onUnlockOffset = onUnlockTop - event.clientY;
-              const screenElement = document.getElementById("screen") as HTMLDivElement;
-
-              if (onUnlockOffset > 0) {
-                screenElement.style.setProperty("-webkit-backdrop-filter", `blur(2px)`);
-              }
-
-              if (onUnlockOffset > 50) {
-                screenElement.style.setProperty("-webkit-backdrop-filter", `blur(3px)`);
-              }
-
-              if (onUnlockOffset > 100) {
-                screenElement.style.setProperty("-webkit-backdrop-filter", `blur(4px)`);
-              }
-
-              if (onUnlockOffset > 150) {
-                screenElement.style.setProperty("-webkit-backdrop-filter", `blur(5px)`);
-              }
-
-              if (onUnlockOffset > 200) {
-                screenElement.style.setProperty("-webkit-backdrop-filter", `blur(6px)`);
-              }
-
-              if (onUnlockOffset > 250) {
-                screenElement.style.setProperty("-webkit-backdrop-filter", `blur(7px)`);
-              }
-
-              if (onUnlockOffset > 300) {
-                screenElement.style.setProperty("-webkit-backdrop-filter", `blur(8px)`);
-              }
-
-              if (onUnlockOffset > 350) {
-                screenElement.style.setProperty("-webkit-backdrop-filter", `blur(9px)`);
-              }
-
-              screenElement.style.setProperty("transform", `translateY(-${onUnlockOffset}px)`);
-            }
           }}
         >
           <div className="gesture-icon">

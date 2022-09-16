@@ -12,3 +12,8 @@
   font-family: "SF-Pro-Text-Bold";
   src: local("SF-Pro-Text-Bold"), url("./SF-Pro-Text-Bold.otf") format("truetype");
 }
+
+@font-face {
+  font-family: "SF-Pro-Display-Medium";
+  src: local("SF-Pro-Display-Medium"), url("./SF-Pro-Display-Medium.otf") format("truetype");
+}
