@@ -2,7 +2,7 @@
   width: calc(280px - 10px);
   height: calc(530px - 5px);
   border-radius: 35px;
-  background: url("../wallpaper/default-3.png") no-repeat;
+  background: url("../wallpaper/default.jpg");
   background-size: cover;
   z-index: 1;
   position: fixed;
@@ -26,9 +26,18 @@
   transition-timing-function: ease-in;
 }
 
+.homescreen-pages {
+  display: inherit;
+  width: calc(540px);
+  height: calc(530px - 5px);
+
+  transition-property: transform;
+  transition-duration: 0.4s;
+}
+
 .homescreen {
   width: calc(280px - 10px);
-  height: calc(530px - 5px);
+  height: calc(530px - 30px);
 
   display: flex;
   flex-direction: column;
@@ -61,6 +70,7 @@
   height: 6px;
   background: rgba(255, 255, 255, 0.6);
   border-radius: 3px;
+  margin-right: 4px;
 }
 
 @keyframes homescreen-dock-zone-appearance {
@@ -81,6 +91,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 3px;
 
   animation-timing-function: cubic-bezier(.15, 1, .12, 1);
   animation-name: homescreen-dock-zone-appearance;
@@ -129,7 +140,7 @@
 }
 
 .homescreen-icons-zone {
-  width: calc(100% - 30px);
+  width: calc(270px - 30px);
   height: calc(100% - 160px);
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -439,7 +450,7 @@
   display: flex;
   flex-direction: column;
 
-  animation-delay: .2s;
+  animation-delay: .15s;
   opacity: 0;
   animation-timing-function: cubic-bezier(.15, 1, .12, 1);
 
@@ -735,7 +746,7 @@
   width: 100%;
   display: flex;
   height: 10px;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
 }
 
@@ -752,7 +763,7 @@
   height: 50px;
   display: flex;
   justify-content: center;
-  align-items: end;
+  align-items: flex-end;
   color: rgba(255, 255, 255, 0.75);
   font-size: 14px;
 }
@@ -773,7 +784,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  justify-content: end;
+  justify-content: flex-end;
   height: calc(100% - 190px);
 }
 
@@ -961,7 +972,7 @@
 
 .control-buttons-zone {
   display: flex;
-  align-items: end;
+  align-items: flex-end;
   width: 100%;
   height: 50px;
 }
@@ -1015,12 +1026,12 @@
 .nav-bar {
   display: flex;
   align-content: center;
-  height: 29px;
+  height: 25px;
 }
 
 .nav-operator {
   display: flex;
-  align-items: end;
+  align-items: flex-end;
   justify-content: center;
   width: 30%;
   font-size: 10px;
@@ -1034,7 +1045,7 @@
 
 .nav-icons {
   display: flex;
-  align-items: end;
+  align-items: flex-end;
   justify-content: center;
 
   padding-left: 10px;

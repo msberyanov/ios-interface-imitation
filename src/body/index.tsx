@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import "./index.css"
 import { Screen } from "../screen";
 
@@ -16,7 +16,24 @@ export const Body: React.FC = () => {
   }, []);
 
   return (
-    <div className="phone-zone" onMouseMove={mouseTouchEnter}>
+    <div
+      className="phone-zone"
+      onMouseMove={mouseTouchEnter}
+      onMouseDown={() => {
+        const touchElement = document.getElementById("touch");
+
+        touchElement?.style.setProperty("background", "rgba(255, 255, 255, 0.9)");
+        touchElement?.style.setProperty("width", "20px");
+        touchElement?.style.setProperty("height", "20px");
+      }}
+      onMouseUp={() => {
+        const touchElement = document.getElementById("touch");
+
+        touchElement?.style.setProperty("background", "rgba(255, 255, 255, 0.5)");
+        touchElement?.style.setProperty("width", "10px");
+        touchElement?.style.setProperty("height", "10px");
+      }}
+    >
       <div className="touch" id="touch"/>
       <div className="notch"/>
       <div className="body-background"/>

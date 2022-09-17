@@ -3,6 +3,8 @@ body {
   font-family: SF-Pro-Display-Bold, Serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: url("./wallpaper/default.jpg");
+  background-size: cover;
 }
 
 code {
