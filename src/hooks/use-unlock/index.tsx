@@ -1,63 +1,13 @@
 import React, { useCallback, useContext, useReducer } from "react";
-import { ScreenContext } from "../context/screen-context";
-
-const initialState = {
-  onUnlock: false,
-  onUnlockTop: 0,
-  unlocked: false
-};
-
-export type UNLOCK_ACTION_TYPE =
-  | { type: "activate"; payload: number }
-  | { type: "deactivate"; }
-  | { type: "unlock"; };
-
-const reducer = (state: typeof initialState, action: UNLOCK_ACTION_TYPE) => {
-  switch (action.type) {
-    case "activate":
-      return {
-        onUnlock: true,
-        onUnlockTop: action.payload,
-        unlocked: false
-      };
-    case "deactivate":
-      return {
-        ...initialState,
-        unlocked: state.unlocked
-      };
-    case "unlock":
-      return {
-        ...initialState,
-        unlocked: true
-      };
-  }
-}
-
-const activateOnUnlock = (payload: number): UNLOCK_ACTION_TYPE => (
-  {
-    type: "activate",
-    payload: payload
-  }
-);
-
-const deactivateOnUnlock = (): UNLOCK_ACTION_TYPE => (
-  {
-    type: "deactivate",
-  }
-);
-
-const unlock = (): UNLOCK_ACTION_TYPE => (
-  {
-    type: "unlock",
-  }
-);
+import { ScreenContext } from "../../context/screen-context";
+import { activateOnUnlock, deactivateOnUnlock, initialState, reducer, unlock } from "./unlock-actions";
 
 export const useUnlock = () => {
   const {lockscreenRef} = useContext(ScreenContext);
 
   const [{onUnlock, onUnlockTop, unlocked}, dispatch] = useReducer(reducer, initialState);
 
-  const onMouseUpOnUnlock = useCallback((event: React.MouseEvent) => {
+  const onMouseUpUnlock = useCallback((event: React.MouseEvent) => {
     if (onUnlock) {
       const screenElement = lockscreenRef.current as HTMLDivElement;
       const onUnlockOffset = onUnlockTop - event.clientY;
@@ -159,7 +109,7 @@ export const useUnlock = () => {
       activateOnUnlock,
       deactivateOnUnlock,
       unlock,
-      onMouseUpOnUnlock,
+      onMouseUpUnlock,
       onMouseMoveUnlock
     }
   );

@@ -10,14 +10,14 @@ export const Screen: React.FC = () => {
     state: {onUnlock, unlocked},
     dispatch,
     activateOnUnlock,
-    onMouseUpOnUnlock,
+    onMouseUpUnlock,
     onMouseMoveUnlock
   } = useUnlock();
 
   return (
     <div
       className="screen-background"
-      onMouseUp={onMouseUpOnUnlock}
+      onMouseUp={onMouseUpUnlock}
       onMouseMove={onMouseMoveUnlock}>
 
       {unlocked && <HomeScreen/>}

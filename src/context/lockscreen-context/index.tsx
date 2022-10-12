@@ -1,5 +1,5 @@
 import React from "react";
-import { UNLOCK_ACTION_TYPE } from "../../hooks/use-unlock";
+import { UNLOCK_ACTION_TYPE } from "../../hooks/use-unlock/unlock-actions";
 
 export interface LockScreenContextProps {
   unlocked: boolean;
