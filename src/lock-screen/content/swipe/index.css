@@ -1,0 +1,22 @@
+.swipe-message {
+  color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  font-size: 12px;
+  font-family: "SF-Pro-Display-Medium", serif;
+  transition-property: opacity;
+  transition-duration: .3s;
+}
+
+.swipe-gesture {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20px;
+}
+
+.gesture-icon {
+  width: 100px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 5px;
+}

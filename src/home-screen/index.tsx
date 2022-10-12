@@ -1,13 +1,16 @@
-import "./index.css";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import moment from "moment";
 import { IoCellular } from "react-icons/io5";
 import { IoIosBatteryFull, IoIosWifi } from "react-icons/io";
 import { iconsProps } from "./icons-props";
+import "./index.css";
+import { ScreenContext } from "../context/screen-context";
 
 const availablePages = 2;
 
 export const HomeScreen: React.FC = () => {
+  const {homeScreenPagesRef} = useContext(ScreenContext);
+
   const [pageNumber, setPageNumber] = useState(1);
   const [onTurn, setOnTurn] = useState(false);
   const [onTurnPageInitial, setOnTurnPageInitial] = useState(0);
@@ -28,9 +31,10 @@ export const HomeScreen: React.FC = () => {
 
       <div
         className="homescreen-pages"
-        id="homescreen-pages"
+        ref={homeScreenPagesRef}
         onMouseDown={(event) => {
-          (document.getElementById("homescreen-pages") as HTMLDivElement).style.setProperty("transition-duration", "0s");
+          homeScreenPagesRef.current?.style.setProperty("transition-duration", "0s");
+
           setOnTurn(true);
           setOnTurnPageInitial(event.clientX);
         }}
@@ -38,7 +42,7 @@ export const HomeScreen: React.FC = () => {
           if (onTurn) {
             const onTurnPageCoordinate = event.clientX - onTurnPageInitial;
 
-            (document.getElementById("homescreen-pages") as HTMLDivElement).style.setProperty("transform", `translateX(${-(pageNumber - 1) * 270 + onTurnPageCoordinate}px)`);
+            homeScreenPagesRef.current?.style.setProperty("transform", `translateX(${-(pageNumber - 1) * 270 + onTurnPageCoordinate}px)`);
           }
         }}
         onMouseUp={(event) => {
@@ -50,7 +54,7 @@ export const HomeScreen: React.FC = () => {
           const homeScreenIconsZoneElement = document.getElementById(`homescreen-icons-zone-${pageNumber}`) as HTMLDivElement;
           const homeScreenPagesElementRect = homeScreenIconsZoneElement.getBoundingClientRect();
 
-          const homeScreenPagesElement = document.getElementById("homescreen-pages") as HTMLDivElement;
+          const homeScreenPagesElement = homeScreenPagesRef.current as HTMLDivElement;
           homeScreenPagesElement.style.setProperty("transition-duration", "0.4s");
 
           if (onTurnPageCoordinate < 0) {

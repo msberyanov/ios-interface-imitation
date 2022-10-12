@@ -1,0 +1,21 @@
+.date {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 14px;
+}
+
+.clock {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-size: 60px;
+  font-family: "SF-Pro-Text-Bold", serif;
+  color: rgba(255, 255, 255, 0.75);
+  letter-spacing: -4px;
+  margin-top: -6px;
+  margin-bottom: 6px;
+}

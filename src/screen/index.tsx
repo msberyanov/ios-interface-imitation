@@ -1,12 +1,9 @@
 import React from "react";
 import "./index.css";
-import { IoCellular, } from "react-icons/io5";
-import { IoIosBatteryFull, IoIosCamera, IoIosFlashlight, IoIosVolumeHigh, IoIosVolumeMute, IoIosWifi } from "react-icons/io";
-import moment from "moment";
-import { FaPlay } from "react-icons/fa";
 import { useUnlock } from "../hooks/use-unlock";
 import { HomeScreen } from "../home-screen";
 import { LockScreen } from "../lock-screen";
+import { LockScreenContext } from "../context/lockscreen-context";
 
 export const Screen: React.FC = () => {
   const {
@@ -25,12 +22,9 @@ export const Screen: React.FC = () => {
 
       {unlocked && <HomeScreen/>}
 
-      <LockScreen
-        unlocked={unlocked}
-        onUnlock={onUnlock}
-        dispatch={dispatch}
-        activateOnUnlock={activateOnUnlock}
-      />
+      <LockScreenContext.Provider value={{unlocked, onUnlock, activateOnUnlock, dispatch}}>
+        <LockScreen/>
+      </LockScreenContext.Provider>
     </div>
   );
 }

@@ -1,0 +1,48 @@
+.notch {
+  width: 100px;
+  height: 30px;
+  position: fixed;
+  margin-bottom: 500px;
+  background: #000000;
+  border-radius: 0px 0px 12px 12px;
+  z-index: 5;
+}
+
+.body {
+  width: 280px;
+  height: 531px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 45px;
+  z-index: 0;
+  position: fixed;
+}
+
+.body-background {
+  width: 280px;
+  height: 531px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow:inset 0px 0px 0px 10px #000000;
+  border-radius: 45px;
+  z-index: 2;
+  position: fixed;
+
+  pointer-events: none;
+}
+
+.body-background:before {
+  position: fixed;
+  content: '';
+  border: 2px solid #0e69a9;
+  border-radius: 47px;
+  width: 281px;
+  height: 532px;
+  pointer-events: none;
+  z-index: 2;
+}

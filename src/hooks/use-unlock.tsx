@@ -1,4 +1,5 @@
-import React, { useCallback, useReducer } from "react";
+import React, { useCallback, useContext, useReducer } from "react";
+import { ScreenContext } from "../context/screen-context";
 
 const initialState = {
   onUnlock: false,
@@ -52,11 +53,13 @@ const unlock = (): UNLOCK_ACTION_TYPE => (
 );
 
 export const useUnlock = () => {
+  const {lockscreenRef} = useContext(ScreenContext);
+
   const [{onUnlock, onUnlockTop, unlocked}, dispatch] = useReducer(reducer, initialState);
 
   const onMouseUpOnUnlock = useCallback((event: React.MouseEvent) => {
     if (onUnlock) {
-      const screenElement = document.getElementById("lockscreen") as HTMLDivElement;
+      const screenElement = lockscreenRef.current as HTMLDivElement;
       const onUnlockOffset = onUnlockTop - event.clientY;
 
       screenElement.style.setProperty("transition-duration", `.4s`);
@@ -64,6 +67,7 @@ export const useUnlock = () => {
       if (onUnlockOffset > 200) {
         screenElement.style.setProperty("-webkit-backdrop-filter", `blur(30px)`);
         screenElement.style.setProperty("transform", `translateY(-${520}px)`);
+
         dispatch(unlock());
       } else {
         screenElement.style.setProperty("-webkit-backdrop-filter", `blur(0px)`);
@@ -72,12 +76,12 @@ export const useUnlock = () => {
 
       dispatch(deactivateOnUnlock());
     }
-  }, [dispatch, onUnlock, onUnlockTop]);
+  }, [dispatch, onUnlock, onUnlockTop, lockscreenRef]);
 
   const onMouseMoveUnlock = useCallback((event: React.MouseEvent) => {
     if (onUnlock) {
       const onUnlockOffset = onUnlockTop - event.clientY;
-      const screenElement = document.getElementById("lockscreen") as HTMLDivElement;
+      const screenElement = lockscreenRef.current as HTMLDivElement;
 
       screenElement.style.setProperty("transition-duration", `0s`);
 
@@ -143,7 +147,7 @@ export const useUnlock = () => {
 
       screenElement.style.setProperty("transform", `translateY(-${onUnlockOffset}px)`);
     }
-  }, [onUnlock, onUnlockTop]);
+  }, [onUnlock, onUnlockTop, lockscreenRef]);
 
   return (
     {

@@ -1,0 +1,10 @@
+.content {
+  display: flex;
+  height: calc(100% - 42px);
+}
+
+.lockscreen-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
