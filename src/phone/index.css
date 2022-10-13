@@ -5,7 +5,7 @@
   margin-bottom: 500px;
   background: #000000;
   border-radius: 0px 0px 12px 12px;
-  z-index: 5;
+  z-index: 4;
 }
 
 .body {
@@ -41,8 +41,8 @@
   content: '';
   border: 2px solid #0e69a9;
   border-radius: 47px;
-  width: 281px;
-  height: 532px;
+  width: 280px;
+  height: 531px;
   pointer-events: none;
   z-index: 2;
 }
