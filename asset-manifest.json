@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/ios-interface-imitation/static/css/main.7eb86c9e.css",
+    "main.js": "/ios-interface-imitation/static/js/main.6001959a.js",
+    "static/media/cover.jpeg": "/ios-interface-imitation/static/media/cover.ede6a9bcd5401bbf4297.jpeg",
+    "static/media/SF-Pro-Text-Bold.otf": "/ios-interface-imitation/static/media/SF-Pro-Text-Bold.9ef3e7915275d9c15bbb.otf",
+    "static/media/SF-Pro-Display-Heavy.otf": "/ios-interface-imitation/static/media/SF-Pro-Display-Heavy.cfa3bd7b4cd82b11760b.otf",
+    "static/media/SF-Pro-Display-Medium.otf": "/ios-interface-imitation/static/media/SF-Pro-Display-Medium.b85d841dacb040b84951.otf",
+    "static/media/SF-Pro-Display-Bold.otf": "/ios-interface-imitation/static/media/SF-Pro-Display-Bold.b1f4d2c69fa808ebca12.otf",
+    "static/media/default.jpg": "/ios-interface-imitation/static/media/default.fc134d64caf8f580e8f9.jpg",
+    "static/media/instagram.png": "/ios-interface-imitation/static/media/instagram.5065b161d9d28238e901.png",
+    "static/media/telegram.png": "/ios-interface-imitation/static/media/telegram.716cab890d3be085df83.png",
+    "static/media/chrome.png": "/ios-interface-imitation/static/media/chrome.36fc359232fac947e5fa.png",
+    "static/media/vk.png": "/ios-interface-imitation/static/media/vk.dd8490e9a191ac99067b.png",
+    "static/media/vlc.png": "/ios-interface-imitation/static/media/vlc.0adca94fcd4daf59b65b.png",
+    "static/media/spotify.png": "/ios-interface-imitation/static/media/spotify.49f4017c312736bbd12a.png",
+    "static/media/settings.png": "/ios-interface-imitation/static/media/settings.219891f1f4e989d1dfbf.png",
+    "static/media/safari.png": "/ios-interface-imitation/static/media/safari.5b1a37c4c59ccee4e83a.png",
+    "static/media/whatsapp.png": "/ios-interface-imitation/static/media/whatsapp.79b9225cdd1704223539.png",
+    "static/media/aliexpress.png": "/ios-interface-imitation/static/media/aliexpress.2cfd19776cf750066f9a.png",
+    "static/media/youtube.png": "/ios-interface-imitation/static/media/youtube.173d747ffda968aa1487.png",
+    "index.html": "/ios-interface-imitation/index.html",
+    "main.7eb86c9e.css.map": "/ios-interface-imitation/static/css/main.7eb86c9e.css.map",
+    "main.6001959a.js.map": "/ios-interface-imitation/static/js/main.6001959a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7eb86c9e.css",
+    "static/js/main.6001959a.js"
+  ]
+}
