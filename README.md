@@ -4,7 +4,7 @@
 
 This project was made for representing iOS interface replication possibility using JavaScript.
 
-The end result is introduces below. 
+The end result is introduced below. 
 
 [Test it yourself (Safari recommended)](https://msberyanov.github.io/ios-interface-imitation/)
 
